@@ -1,22 +1,12 @@
-<html>
-    <head>
-        <title>Deepthi's blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Deepthi Blog</a></h1>
+{%extends 'blog1/base.html' %}
+{%block content%}
+{% for post in posts %}
+    <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaks }}</p>
         </div>
-
-        <div>
-            <p>published: 15.02.2015, 01:50</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Post description goes here</p>
-        </div>
-
-        <div>
-            <p>published: 15.02.2015, 01:50</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Post description goes here</p>
-        </div>
-    </body>
-</html>
+{% endfor%}
+{%endblock%}
